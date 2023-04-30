@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
+import { orderBookSlice } from './modules/orderBook/orderBookSlice'
 import { orderBookApi } from './modules/orderBook/orderBookApi'
 
 export const store = configureStore({
   reducer: {
+    orderBook: orderBookSlice.reducer,
     [orderBookApi.reducerPath]: orderBookApi.reducer
   },
   middleware: (getDefaultMiddleware) =>
